@@ -1,0 +1,150 @@
+#include <iostream>
+#include "Polynomial.h"
+#include "input.h"
+using namespace std;
+
+// Function Prototypes
+void PolynomialMenu();
+void SinglePolynomialMenu();
+void TwoPolynomialMenu();
+using namespace std;
+
+int main() {
+    PolynomialMenu();
+    return 0;
+}
+void PolynomialMenu() {
+    char option;
+    do {
+        std::system("cls");
+        std::cout << "\t A polynomial is an expression consisting of variables(also called indeterminates) and\n";
+        std::cout << "\t coefficients, that involves only the operations of addition, subtraction, multiplication,\n";
+        std::cout << "\tand non-negative integer exponentiation of variables.\n";
+        std::cout << "\t3> Polynomials\n";
+        std::cout << "\t\n" << string(90, char(205)) << "\t\n";
+        std::cout << "\tA> A Polynomial\n";
+        std::cout << "\tB> Multiple Polynomials\n";
+        std::cout << "\t\n" << string(90, char(196)) << "\t\n";
+        std::cout << "\tR> return\n";
+        std::cout << "\t\n"<< string(90, char(205)) << "\t\n";
+
+        option = toupper(inputChar(" Option:", "ABR"));
+
+        switch (option) {
+        case 'A': SinglePolynomialMenu(); break;
+        case 'B': TwoPolynomialMenu(); break;
+        case 'R': std::cout << "\nReturning to main menu...\n"; return;
+        default:  std::cout << "\nInvalid choice.\n"; std::system("pause");
+        }
+
+    } while (true);
+}
+
+
+void SinglePolynomialMenu() {
+    Polynomial p;
+    int choice;
+    int numTerms = 0;
+    double x;
+
+    do {
+        system("cls");
+        std::cout << "\nA> Single Polynomial\n";
+        std::cout << string(90, char(205)) << "\n";
+        std::cout << "\t1. Enter the number of terms\n";
+        std::cout << "\t2. Specify the coefficients\n";
+        std::cout << "\t3. Evaluate expression\n";
+        std::cout << "\t4. Solve for the derivative\n";
+        std::cout << "\t5. Solve for the integral\n";
+        std::cout << string(90, char(196)) << "\n";
+        std::cout << "\t0. return\n";
+        std::cout << string(90, char(205)) << "\n";
+
+        choice = inputInteger("Enter a choice: ", 0, 5);
+
+        switch (choice) {
+        case 1:
+            numTerms = inputInteger("\n\tEnter the number of terms (1..100): ", 1, 100);         
+            std::cout << "\n\tNumber of terms set to " << numTerms << "\n";
+            
+            break;
+
+        case 2:
+            if (numTerms == 0 ) {
+                std::cout << "\n\tPlease enter the number of terms first (option 1).\n";
+                break;
+            }
+            for (int i = 0; i < numTerms; i++) {
+                double coeff = inputDouble("Enter the coefficient for term #" + to_string(i + 1) + ": ");
+                p.setCoeff(i, coeff);  // 0-based index matches your Polynomial class
+            }
+
+            
+            std::cout << "\n\tThe P(x) is entered: " << p << "\n";
+                break;
+            
+        case 3: {
+            if (p.degree() < 0) {
+                std::cout << "\nPolynomial is empty. Please input terms first.\n";
+                break;
+            }
+
+            std::cout << "\nP1(x) = " << p << "\n";
+
+            double x = inputDouble("Enter the value of x to evaluate the polynomial: ");
+
+            p.printEvaluationSteps( x);
+
+            break;
+        }
+
+
+
+        case 4:
+            std::cout << "\n\tf(x) = " << p << "\n";
+            std::cout << "\n\tf'(x) = " << p.derivative() << "\n";
+            break;
+
+        case 5:
+            std::cout << "\n\tf(x) = " << p << "\n";
+            std::cout << "\n\tIntegral of f(x) = " << p.integral() << " + C\n";
+            break;
+
+        case 0:
+            return;
+
+        default:
+            std::cout << "\n\tInvalid option!\n";
+        }
+
+        std::cout << "\n";
+        system("pause");
+
+    } while (true);
+}
+
+void TwoPolynomialMenu() {
+    Polynomial P1, P2;
+    int numTerms;
+    double scalar;
+
+    numTerms = inputInteger("\n\tEnter the number of terms (1..100) for the first polynomial (P1): ", 1, 100);
+    P1.inputTerms(numTerms);
+    std::cout << "\n\tThe first polynomial (P1) is entered: " << P1 << "\n";
+
+    numTerms = inputInteger("\n\tEnter the number of terms (1..100) for the second polynomial (P2): ", 1, 100);
+    P2.inputTerms(numTerms);
+    std::cout << "\n\tThe second polynomial (P2) is entered: " << P2 << "\n";
+
+    std::cout << "\n\tAddition of polynomials       -> P1 + P2 = " << (P1 + P2);
+    std::cout << "\n\tSubtraction of polynomials    -> P1 - P2 = " << (P1 - P2);
+    std::cout << "\n\tMultiplication of polynomials -> P1 * P2 = " << (P1 * P2) << "\n";
+
+    std::cout << "\n\tEnter a constant value: ";
+    cin >> scalar;
+    std::cout << "\n\t" << scalar << "* Polynomial(P1) = " << (scalar * P1);
+    std::cout << "\n\tPolynomial(P2) * " << scalar << " = " << (P2 * scalar) << "\n";
+
+    std::cout << "\n";
+    system("pause");
+}
