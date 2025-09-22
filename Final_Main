@@ -131,7 +131,7 @@ char complexMenu() {
           real number satisfies this equation, i is called an imaginary number. For the complex number
           a + b i, a is called the real part and b is called the imaginary part.
 
-                1> Complex Numbers
+        1> Complex Numbers
 )zzz";
         cout << INDENT << string(90, (char)205) << endl;
         cout << INDENT << "A> A Complex Number\n";
