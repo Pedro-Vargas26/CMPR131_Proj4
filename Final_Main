@@ -412,15 +412,15 @@ void RationalMenu()
     {
         system("cls");
         cout << "\n\tA rational number is a number that can be written as a fraction, a/b, where a is numerator and"
-             << "\n\tb is denominator.Rational numbers are all real numbers, and can be positive or negative.A"
-             << "\n\tnumber that is not rational is called irrational.Most of the numbers that people use in everyday"
-             <<"\n\tlife are rational.These include fractions, integers and numbers with finite decimal digits."
-             <<"\n\tIn general, a number that can be written as a fraction while it is in its own form is rational.";
+            << "\n\tb is denominator.Rational numbers are all real numbers, and can be positive or negative.A"
+            << "\n\tnumber that is not rational is called irrational.Most of the numbers that people use in everyday"
+            << "\n\tlife are rational.These include fractions, integers and numbers with finite decimal digits."
+            << "\n\tIn general, a number that can be written as a fraction while it is in its own form is rational.";
 
         cout << "\n\n\t2> Rational Numbers";
         cout << "\n\t" << string(105, char(205));
         cout << "\n\tA> Rational Number"
-             << "\n\tB> Multiple Rational Numbers";
+            << "\n\tB> Multiple Rational Numbers";
         cout << "\n\t" << string(105, char(196));
         cout << "\n\t0. Return";
         cout << "\n\t" << string(105, char(205));
@@ -435,7 +435,7 @@ void RationalMenu()
         case 'A': OneRational(r); break;
 
         case 'B': MultRational(r3); break;
-        
+
         default:
             cout << "\n\tInvalid choice.\n";
 
@@ -497,7 +497,7 @@ void OneRational(Rational& r)
         } break;
         case 3:
         {
-          cout << "\n\tRational number R1 = " << r;
+            cout << "\n\tRational number R1 = " << r;
         } break;
 
         case 4:
@@ -512,7 +512,7 @@ void OneRational(Rational& r)
             Rational copy = r;
             Rational negated = -copy;
             cout << "\n\tNegated rational number R2 (a copy of R1)";
-            cout << "\n\t-(" << copy << ")" << " = " <<  -copy;
+            cout << "\n\t-(" << copy << ")" << " = " << -copy;
         } break;
 
         case 6:
@@ -526,7 +526,7 @@ void OneRational(Rational& r)
                 << "\n\t" << addConst << " + (" << copy << ")" << " = " << (addConst + copy);
         } break;
 
-        case 7: 
+        case 7:
         {
             Rational copy = r;
             int subConst = inputInteger("\n\tEnter an integer value: ");
@@ -535,7 +535,7 @@ void OneRational(Rational& r)
 
             cout << "\n\n\tvalue - R2"
                 << "\n\t" << subConst << " - (" << copy << ")" << " = " << (subConst - copy);
-        } break; 
+        } break;
 
         case 8:
         {
@@ -548,7 +548,7 @@ void OneRational(Rational& r)
                 << "\n\t" << multConst << " * (" << copy << ")" << " = " << (multConst * copy);
         } break;
 
-        case 9: 
+        case 9:
         {
             Rational copy = r;
             int divConst = inputInteger("\n\tEnter an integer value: ");
@@ -565,7 +565,7 @@ void OneRational(Rational& r)
             cout << "\n\n\tvalue / R2";
             try
             {
-               cout << "\n\t" << divConst << " / (" << copy << ")" << " = " << (divConst / copy);
+                cout << "\n\t" << divConst << " / (" << copy << ")" << " = " << (divConst / copy);
             }
             catch (const std::exception&)
             {
@@ -613,9 +613,9 @@ void MultRational(Rational& r3)
         case 0:
             cout << "\n\tReturn to main menu\n";
             return;
-        case 1: 
+        case 1:
         {
-            EnterR1(r1); 
+            EnterR1(r1);
             cout << "\n\tR1 = " << r1;
         } break;
 
@@ -624,10 +624,10 @@ void MultRational(Rational& r3)
             EnterR2(r2);
             cout << "\n\tR2 = " << r2;
         } break;
-        case 3: 
+        case 3:
         {
             cout << boolalpha;
-            cout << "\n\tR1 == R2 -> ("<< r1 << ") == ("<< r2 <<") ? " << (r1 == r2);
+            cout << "\n\tR1 == R2 -> (" << r1 << ") == (" << r2 << ") ? " << (r1 == r2);
             cout << "\n\tR1 != R2 -> (" << r1 << ") != (" << r2 << ") ? " << (r1 != r2);
             cout << "\n\tR1 >= R2 -> (" << r1 << ") >= (" << r2 << ") ? " << (r1 >= r2);
             cout << "\n\tR1  > R2 -> (" << r1 << ")  > (" << r2 << ") ? " << (r1 > r2);
@@ -640,11 +640,11 @@ void MultRational(Rational& r3)
             cout << "\n\tAddition      :R1 + R2 -> (" << r1 << ") + (" << r2 << ") = " << (r1 + r2);
             cout << "\n\tSubtraction   :R1 - R2 -> (" << r1 << ") - (" << r2 << ") = " << (r1 - r2);
             cout << "\n\tMultiplication:R1 * R2 -> (" << r1 << ") * (" << r2 << ") = " << (r1 * r2);
-            try 
+            try
             {
                 cout << "\n\tDivision      :R1 / R2 -> (" << r1 << ") / (" << r2 << ") = " << (r1 / r2);
             }
-            catch (const Rational::divisionByZero& e) 
+            catch (const Rational::divisionByZero& e)
             {
                 cout << "\n\tDivision      :R1 / R2 -> (" << r1 << ") / (" << r2 << ") = 0/0";
             }
@@ -660,10 +660,10 @@ void MultRational(Rational& r3)
 
             cout << "\n\n\tEvaluating Expression...";
             cout << "\n\t\t (3 * (R1 + R2) / 7) / (R2 - R1 / 9) >=" << r3 << " ?";
-            cout << "\n\tstep #1: (3 * (" << r1 + r2 << ") / 7) / (R2 - "<< r1 / 9 << ") >= " << r3 << " ? ";
-            cout << "\n\tstep #2: (" << 3 *  (r1 + r2) << ") / 7) / (" << r2 - r1 / 9 << ") >= " << r3 << " ? ";
+            cout << "\n\tstep #1: (3 * (" << r1 + r2 << ") / 7) / (R2 - " << r1 / 9 << ") >= " << r3 << " ? ";
+            cout << "\n\tstep #2: (" << 3 * (r1 + r2) << ") / 7) / (" << r2 - r1 / 9 << ") >= " << r3 << " ? ";
             cout << "\n\tstep #3: (" << (3 * (r1 + r2) / 7) << ") / (" << r2 - r1 / 9 << ") >= " << r3 << " ? ";
-            
+
             cout << boolalpha;
             try
             {
@@ -700,19 +700,21 @@ void MultRational(Rational& r3)
 void PolynomialMenu() {
     char option;
     do {
-        std::system("cls");
-        std::cout << "\t A polynomial is an expression consisting of variables(also called indeterminates) and\n";
-        std::cout << "\t coefficients, that involves only the operations of addition, subtraction, multiplication,\n";
-        std::cout << "\tand non-negative integer exponentiation of variables.\n";
-        std::cout << "\t3> Polynomials\n";
-        std::cout << "\t\n" << string(90, char(205)) << "\t\n";
-        std::cout << "\tA> A Polynomial\n";
-        std::cout << "\tB> Multiple Polynomials";
-        std::cout << "\t\n" << string(90, char(196)) << "\t\n";
-        std::cout << "\tR> return";
-        std::cout << "\t\n" << string(90, char(205)) << "\t\n";
+        system("cls");
+        cout << "\n\tA polynomial is an expression consisting of variables (also called indeterminates) and";
+        cout << "\n\tcoefficients, that involves only the operations of addition, subtraction, multiplication,";
+        cout << "\n\tand non-negative integer exponentiation of variables.";
+        cout << "\n\t3> Polynomials";
 
-        option = toupper(inputChar(" Option:", "ABR"));
+        cout << "\n\t" << string(105, char(196));
+        cout << "\n\tA> A Polynomial";
+        cout << "\n\tB> Multiple Polynomials";
+        cout << "\n\t" << string(105, char(196));
+        cout << "\n\tR> Return";
+        cout << "\n\t" << string(105, char(205));
+
+
+        option = toupper(inputChar("\n\tOption:", "ABR"));
 
         switch (option) {
         case 'A': SinglePolynomialMenu(); break;
@@ -733,18 +735,19 @@ void SinglePolynomialMenu() {
 
     do {
         system("cls");
-        std::cout << "\nA> Single Polynomial\n";
-        std::cout << string(90, char(205)) << "\n";
-        std::cout << "\t1. Enter the number of terms\n";
-        std::cout << "\t2. Specify the coefficients\n";
-        std::cout << "\t3. Evaluate expression\n";
-        std::cout << "\t4. Solve for the derivative\n";
-        std::cout << "\t5. Solve for the integral\n";
-        std::cout << string(90, char(196)) << "\n";
-        std::cout << "\t0. return\n";
-        std::cout << string(90, char(205)) << "\n";
+        std::cout << "\n\tA> Single Polynomial";
+        std::cout << "\n\t" << std::string(90, char(205));
+        std::cout << "\n\t1. Enter the number of terms";
+        std::cout << "\n\t2. Specify the coefficients";
+        std::cout << "\n\t3. Evaluate expression";
+        std::cout << "\n\t4. Solve for the derivative";
+        std::cout << "\n\t5. Solve for the integral";
+        std::cout << "\n\t" << std::string(90, char(196));
+        std::cout << "\n\t0. Return";
+        std::cout << "\n\t" << std::string(90, char(205));
 
-        choice = inputInteger("Enter a choice: ", 0, 5);
+
+        choice = inputInteger("\n\tEnter a choice: ", 0, 5);
 
         switch (choice) {
         case 1:
@@ -759,14 +762,15 @@ void SinglePolynomialMenu() {
                 break;
             }
             for (int i = 0; i < numTerms; i++) {
+                int power = numTerms - 1 - i;
                 double coeff = inputDouble("Enter the coefficient for term #" + to_string(i + 1) + ": ");
-                p.setCoeff(i, coeff);  // 0-based index matches your Polynomial class
+                p.setCoeff(power, coeff);
             }
+
 
 
             std::cout << "\n\tThe P(x) is entered: " << p << "\n";
             break;
-
         case 3: {
             if (p.degree() < 0) {
                 std::cout << "\nPolynomial is empty. Please input terms first.\n";
