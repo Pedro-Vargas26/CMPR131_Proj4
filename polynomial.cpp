@@ -36,15 +36,18 @@ void Polynomial::setCoeff(int power, double value) {
     coefficients[power] = value;
 }
 
+
 void Polynomial::inputTerms(int numberOfTerms) {
     coefficients.clear();
     coefficients.resize(numberOfTerms, 0.0);
 
     for (int i = 0; i < numberOfTerms; ++i) {
-        std::cout << "\tEnter the coefficient for term #" << (i + 1) << ": ";
-        std::cin >> coefficients[i];  // Store normally: index 0 = x^0
+        int power = numberOfTerms - 1 - i;
+        std::cout << "\tEnter the coefficient for x^" << power << ": ";
+        std::cin >> coefficients[power];  // Now highest power is entered first
     }
 }
+
 
 
 // Evaluate at x
@@ -188,3 +191,4 @@ std::ostream& operator<<(std::ostream& os, const Polynomial& p) {
 
     return os;
 }
+
