@@ -1,5 +1,6 @@
 
 
+
 // Anthony Herrera
 // 9/18/2025
 // CMPR 131
@@ -633,25 +634,25 @@ void MultRational(Rational& r3)
         {
             cout << boolalpha;
             cout << "\n\tR1 == R2 -> (" << r1 << ") == (" << r2 << ") ? " << (r1 == r2);
-            cout << "\n\tR1 != R2 -> (" << r1 << ") != (" << r2 << ") ? " << (r1 != r2);
+            cout << "\n\tR2 != R1 -> (" << r2 << ") != (" << r1 << ") ? " << (r1 != r2);
             cout << "\n\tR1 >= R2 -> (" << r1 << ") >= (" << r2 << ") ? " << (r1 >= r2);
-            cout << "\n\tR1  > R2 -> (" << r1 << ")  > (" << r2 << ") ? " << (r1 > r2);
+            cout << "\n\tR2  > R1 -> (" << r2 << ")  > (" << r1 << ") ? " << (r2 > r1);
             cout << "\n\tR1 <= R2 -> (" << r1 << ") <= (" << r2 << ") ? " << (r1 <= r2);
-            cout << "\n\tR1  < R2 -> (" << r1 << ")  < (" << r2 << ") ? " << (r1 < r2);
+            cout << "\n\tR2  < R1 -> (" << r2 << ")  < (" << r1 << ") ? " << (r2 < r1);
         } break;
 
         case 4:
         {
             cout << "\n\tAddition      :R1 + R2 -> (" << r1 << ") + (" << r2 << ") = " << (r1 + r2);
-            cout << "\n\tSubtraction   :R1 - R2 -> (" << r1 << ") - (" << r2 << ") = " << (r1 - r2);
+            cout << "\n\tSubtraction   :R2 - R1 -> (" << r2 << ") - (" << r1 << ") = " << (r2 - r1);
             cout << "\n\tMultiplication:R1 * R2 -> (" << r1 << ") * (" << r2 << ") = " << (r1 * r2);
             try
             {
-                cout << "\n\tDivision      :R1 / R2 -> (" << r1 << ") / (" << r2 << ") = " << (r1 / r2);
+                cout << "\n\tDivision      :R2 / R1 -> (" << r2 << ") / (" << r1 << ") = " << (r2 / r1);
             }
-            catch(...)
+            catch (...)
             {
-                cout << "\n\tDivision      :R1 / R2 -> (" << r1 << ") / (" << r2 << ") = 0/0";
+                cout << "\n\tDivision      :R2 / R1 -> (" << r2 << ") / (" << r1 << ") = 0/0";
             }
         }break;
 
