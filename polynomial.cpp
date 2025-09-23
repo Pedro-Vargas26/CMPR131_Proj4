@@ -144,6 +144,7 @@ void Polynomial::printEvaluationSteps(double x) const {
 
         std::cout << std::setw(6) << termVal << " <- " << std::setw(8)
             << std::fixed << std::setprecision(2) << coeff << "x";
+        std::cout << std::defaultfloat;
         if (i > 1) std::cout << "^" << i;
         else if (i == 0) std::cout << "^0";
         std::cout << "\n";
@@ -191,4 +192,3 @@ std::ostream& operator<<(std::ostream& os, const Polynomial& p) {
 
     return os;
 }
-
